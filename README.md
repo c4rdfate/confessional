@@ -1,2 +1,4 @@
 # confessional
-Divine OS Confessional Terminal 
+Divine OS -- Confessional Terminal | Leviathan Shoates 
+
+
