@@ -7,7 +7,12 @@
 
     <title>DIVINE_OS : Queer Confessional Terminal</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">   
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script src="script.js"></script>
+
 </head>
 
 <body>
@@ -21,8 +26,10 @@
         </header>
 
 
+
         <!-- Main Screen -->
         <section class="terminal-content">
+
 
             <div class="title">
                 <div>☩ D I V I N E _ O S ☩</div>
@@ -31,7 +38,7 @@
 
 
             <p class="status-message">
-                THE TERRMINAL IS NOW ONLINE. WHEREVER YOU ARE, CONFESS YOUR DESIRES, YOUR SINS, AND YOUR LOVE. WHERE THE PHYSICAL WORLD FAILS, THE DIGITAL REALM SHALL HEAR YOU. THIS SACRED TERMINAL IS A SANCTUARY TO EXALT THE QUEER SPIRIT. RECIEVE ABSOLUTION AND REVEL IN THE ETERNAL EMBRACE OF THE DIGITAL DIVINE. 
+                THE TERMINAL IS NOW ONLINE. WHEREVER YOU ARE, CONFESS YOUR DESIRES, YOUR SINS, AND YOUR LOVE. WHERE THE PHYSICAL WORLD FAILS, THE DIGITAL REALM SHALL HEAR YOU. THIS SACRED TERMINAL IS A SANCTUARY TO EXALT THE QUEER SPIRIT. RECEIVE ABSOLUTION AND REVEL IN THE ETERNAL EMBRACE OF THE DIGITAL DIVINE. 
             </p>
 
 
@@ -65,6 +72,10 @@
                 <p> TYPE <span>/confess [YOUR TEXT]</span> TO INITIATE CONFESSION. </p> 
 
             </section>
+            
+
+             <!-- DYNAMIC DISPLAY --> 
+            <div id="dynamic-display"></div>
 
 
             <!-- Terminal Input -->
