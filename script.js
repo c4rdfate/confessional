@@ -80,7 +80,93 @@ unknown: {
 
 
 //Runtime Functions....
-
 let isProcessing = false; 
 let sessionState = "WELCOME";
 let initialWelcomeHTML = ""; 
+
+document.addEventListener("DOMContentLoaded", () => { let
+     const inputField = document.getElementById("terminal-input"); 
+     const displayArea = document.getElementById("dynamic-display");
+    
+     initialWelcomeHTML = displayArea.innerHTML;
+
+    inputField.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      const rawInput = inputField.value.trim();
+      inputField.value = ""; 
+           if (!rawInput || isProcessing) return;
+      
+      handleTerminalRouter(rawInput, displayArea, inputField);
+     }
+  });
+});
+
+//Input Handling and Routing 
+function handleTerminalRouter(input, displayContainer, inputEl) {
+  const cleanInput = input.trim();
+  const inputLine = document.querySelector(".input-line");
+
+  // Ending Loop State Handling
+  if (sessionState === "ENDLOOP") {
+    if (cleanInput === "1") {
+      rebootToWelcome(displayContainer);
+    } else if (cleanInput === "2") {
+      terminateSanctuary(displayContainer, inputLine);
+    } else {
+      renderEndingChoices(displayContainer); // Reprompt ??? 
+    }
+    return;
+  } 
+}
+
+//Command Menu Handling 
+
+if (cleanInput === "/help"){
+    displayHelpMenu(displayContainer);
+    return;
+} 
+  if (cleanInput.toLowerCase() === "/books") {
+    displayBooksDirectory(displayContainer);
+    return;
+  }
+
+  if (cleanInput.toLowerCase() === "/info") {
+    displayInfoDirectory(displayContainer);
+    return;
+  }
+
+  if (cleanInput.toLowerCase() === "/clear" || cleanInput.toLowerCase() === "/reboot") {
+    rebootToWelcome(displayContainer);
+    return;
+  }
+
+  //Confession Input Handling 
+    if (cleanInput.toLowerCase().startsWith("/confess ")) {
+    const confessionText = cleanInput.substring(9).trim();
+    if (!confessionText) {
+      displayContainer.innerHTML = `<p class="error-msg">☩ ERROR: THE DIRECTORY REQUIRES AN EMBODIED TRUTH. TYPE CONTENT AFTER /confess ☩</p>`;
+      return;
+    }
+    executeRitualLoop(confessionText, displayContainer, inputLine, inputEl);
+  } else {
+    displayContainer.innerHTML = `<p class="error-msg">☩ ERROR: INVALID LITURGICAL SYNTAX. TYPE <span>/help</span> TO ACCESS SCHEMAS. ☩</p>`;
+  }
+
+  function executeRitualLoop(text, container, inputLine, inputEl) {
+  isProcessing = true;
+  sessionState = "INTERMEDIATE";
+  inputLine.style.display = "none"; 
+
+  const lowerText = text.toLowerCase();
+  let matchedBooks = [];
+
+  // Text Analysis
+  for (const bookKey in CanonOS_Library) {
+    if (bookKey === "unknown") continue;
+    const book = CanonOS_Library[bookKey];
+    const regex = new RegExp(`\\b(${book.keywords.join("|")})\\b`, "i");
+    if (regex.test(lowerText)) {
+      matchedBooks.push(bookKey);
+    }
+  }
+}
