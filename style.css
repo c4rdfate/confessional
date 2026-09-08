@@ -109,7 +109,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 35px; 
-  overflow-y: auto;
+  overflow-y: fixed;
 }
 
 /* Title Section */
@@ -243,8 +243,30 @@ html, body {
   pointer-events: none;
 }
 
-
-
 header, footer {
   box-sizing: border-box;
+}
+
+/* Dynamic Display Section */ 
+
+#dynamic-display {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.diagnostic-log {
+    text-align: center;
+}
+
+.log-lines {
+    text-align: left;
+    display: inline-block;
+}
+
+
+/* Ending Text Styling */ 
+#ending-output,
+#termination-output {
+    white-space: pre-line;
 }
