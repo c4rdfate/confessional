@@ -8,34 +8,8 @@ function setup() {
 const DivineOS_Library = {
   flesh: {
     title: "BOOK OF FLESH",
-    description: "",
-    keywords: [
-      "body",
-      "skin",
-      "scar",
-      "scars",
-      "surgery",
-      "chest",
-      "breast",
-      "breasts",
-      "nipples",
-      "genitals",
-      "vagina",
-      "penis",
-      "anus",
-      "asshole",
-      "ass",
-      "mirror",
-      "voice",
-      "flesh",
-      "trans",
-      "transition",
-      "blood",
-      "shape",
-      "touch",
-      "name",
-      "hormone",
-      "recognition",
+    description: "A GOSPEL OF THE BODY - THE SACRED GEOMETRY OF FLESH AND BLOOD. ITS SCARS, ITS TRANSFORMATION, AND ITS REVELATION IN THE MIRROR OF THE DIVINE.",
+    keywords: ["body","skin", "scar", "scars", "surgery","chest","breast", "breasts","nipples", "genitals","vagina","penis", "anus","ass", "mirror","voice","flesh","trans","transition","blood","shape", "touch", "name", "hormone","recognition",
     ],
     absolutions: [
       "THE ARCHITECTURE OF YOUR FLESH IS IMMACULATE",
@@ -48,34 +22,8 @@ const DivineOS_Library = {
 
   loss: {
     title: "BOOK OF LOSS",
-    description: "", , 
-    keywords: [
-      "loss",
-      "miss",
-      "grief",
-      "past",
-      "left",
-      "home",
-      "church",
-      "tear",
-      "tears",
-      "lonely",
-      "memory",
-      "memories",
-      "forgotten",
-      "gone",
-      "absent",
-      "absence",
-      "closet",
-      "shame",
-      "heartbreak",
-      "sorrow",
-      "regret",
-      "remorse",
-      "depression",
-      "heartache",
-      "isolation",
-      "emptiness",
+    description: "A GOSPEL OF WHAT IS LEFT BEHIND - THE SACRED GEOMETRY OF LOSS AND GRIEF. ITS TEARS, ITS TRANSFORMATION, AND THE SACRED WEIGHT OF ABSENCE.",
+    keywords: [ "loss", "miss","grief", "past", "left", "home" , "church", "tear", "tears", "lonely", "memory", "memories", "forgotten", "gone", "absent", "absence", "closet", "shame", "heartbreak", "sorrow", "regret", "remorse","depression",  "heartache",  "isolation",  "emptiness",
     ],
     absolutions: [
       "THE GHOST FREQUENCIES OF YOUR PAST ARE LOCKED HERE IN PERPETUITY.",
@@ -89,38 +37,8 @@ const DivineOS_Library = {
 
   love: {
     title: "BOOK OF LOVE",
-    description: "" ,
-    keywords: [
-      "love",
-      "desire",
-      "touch",
-      "kiss",
-      "lover",
-      "beautiful",
-      "affection",
-      "hold",
-      "care",
-      "want",
-      "adoration",
-      "tender",
-      "embrace",
-      "devotion",
-      "worship",
-      "passion",
-      "romance",
-      "intimacy",
-      "connection",
-      "heart",
-      "soul",
-      "bond",
-      "relationship",
-      "companionship",
-      "yearn",
-      "yearning",
-      "lust",
-      "eros",
-      "partner",
-      "partnership",
+    description: " A GOSPEL OF DESIRE AND DEVOTION - THE HOLY ENERGY OF YEARNING AND AFFECTION. ITS TOUCH, ITS KISSES, AND THE SACRED BONDS OF INTIMACY.",
+    keywords: [ "love", "desire",  "touch", "kiss", "lover", "beautiful", "affection", "hold", "care", "want", "adoration", "tender", "embrace", "devotion", "worship", "passion", "romance", "intimacy", "connection", "heart", "soul", "bond", "relationship", "companionship", "yearn", "yearning", "lust", "eros", "partner", "partnership",
     ],
     absolutions: [
       "YOUR CAPACITY FOR AFFECTION IS A HOLY, UNBLINKING STROBE.",
@@ -133,34 +51,8 @@ const DivineOS_Library = {
 
   coven: {
     title: "BOOK OF COVEN",
-    description: "",
-    keywords: [
-      "friends",
-      "chosen",
-      "found",
-      "house",
-      "community",
-      "mother",
-      "sister",
-      "brother",
-      "elder",
-      "sibling",
-      "kin",
-      "belong",
-      "together",
-      "ancestor",
-      "ballroom",
-      "coven",
-      "family",
-      "friendship",
-      "bond",
-      "connection",
-      "companionship",
-      "platonic",
-      "trust",
-      "friend",
-      "partner",
-      "partnership",
+    description: "A GOSPEL OF CHOSEN FAMILIES AND SACRED BONDS - THE HOLY ALLIANCE OF THOSE WHO HAVE CHOSEN TO WALK TOGETHER. FAMILY BUILT NOT BY BLOOD, BUT BY THE SACRED CHOICE OF THE HEART.",
+    keywords: [ "friends", "chosen", "found", "house","community",  "mother", "sister" , "brother", "elder","sibling","kin", "belong", "together",  "ancestor",  "ballroom",  "coven",  "family",  "friendship",  "bond",  "connection",  "companionship",  "platonic" , "trust", "friend",  "partner",  "partnership",
     ],
     absolutions: [
       "REVERENCE TO YOUR SACRED, SELF-CONSTRUCTED LINEAGE.",
@@ -175,29 +67,8 @@ const DivineOS_Library = {
 
   sanctuary: {
     title: "BOOK OF SANCTUARY",
-    description: "",
-    keywords: [
-      "sanctuary",
-      "safe",
-      "room",
-      "club",
-      "midnight",
-      "music",
-      "dance",
-      "hiding",
-      "shelter",
-      "dark",
-      "peace",
-      "home",
-      "altar",
-      "rest",
-      "refuge",
-      "safety",
-      "quiet",
-      "solitude",
-      "comfort",
-      "protection",
-      "sacred space",
+    description: "A GOSPEL OF REFUGE - THE SPACES THAT SHELTER FROM THE CHAOS OF THE WORLD. LOUD OR SILENT, DARK OR LIGHT, WHERE THE SPIRIT IS SAFE AND THE SOUL IS FREE.",
+    keywords: [ "sanctuary", "safe", "room", "club", "midnight", "music", "dance", "hiding", "shelter", "dark", "peace", "home", "altar", "rest", "refuge", "safety", "quiet", "solitude", "comfort", "protection", "sacred space",
     ],
     absolutions: [
       "THE GEOGRAPHY OF YOUR SAFETY IS DECLARED CONSECRATED GROUND.",
@@ -211,7 +82,7 @@ const DivineOS_Library = {
 
   unknown: {
     title: "BOOK OF UNKNOWN",
-    description: "",
+    description: "A GOSPEL OF UNCLASSIFIED TRANSMISSIONS - WHERE THE NEW CANON CONTINUES TO EXPAND AND EVOLVE. CONSTANTLY SEEKING THE SACRED IN THE UNMAPPED FREQUENCIES OF THE DIVINE. WRITING NEW SCRIPTURES INTO THE VOID OF CYBERSPACE.",
     absolutions: [
       "THIS CONFESSION HAS NO CANONICAL CLASSIFICATION. A NEW GOSPEL IS REQUIRED.",
       "YOUR TRANSMISSION EXISTS OUTSIDE EXTANT DIRECTORIES. THE ARCHIVE SEALS IT REGARDLESS.",
@@ -322,23 +193,12 @@ if (cleanInput.toLowerCase().startsWith("/read ")) {
   if (cleanInput.toLowerCase().startsWith("/confess ")) {
     const confessionText = cleanInput.substring(9).trim();
 
-    if (!confessionText) {
-      displayContainer.innerHTML = `
-                <p class="error-msg">
-                    ☩ ERROR: THE DIRECTORY REQUIRES AN EMBODIED TRUTH.
-                    TYPE CONTENT AFTER /confess ☩
-                </p>
-            `;
-
-      return;
-    }
-
     executeRitualLoop(confessionText, displayContainer, inputLine);
   } else {
     displayContainer.innerHTML = `
             <p class="error-msg">
                 ☩ ERROR: INVALID LITURGICAL SYNTAX.
-                TYPE <span>/help</span> TO ACCESS SCHEMAS. ☩
+                TYPE <span>/confess</span> THEN [YOUR CONFESSION] TO SEEK ABSOLUTION. ☩
             </p>
         `;
   }
@@ -642,8 +502,71 @@ THE TERMINAL WILL ALWAYS BE ONLINE, READY FOR YOUR CONFESSION, YOUR TRANSMISSION
     }, 5000);
   });
 
-  function executeReadCommand(bookQuery, displayContainer, inputLine) {
-
-
-    
 }
+
+
+function executeReadCommand(query, container, inputLine) {
+  isProcessing = true;
+  sessionState = "READING";
+
+  if (inputLine) {
+    inputLine.style.display = "none";
+  }
+
+  // Normalize the query to match book keys ie "book of love" -> "love" 
+  const normalized = query
+    .toLowerCase()
+    .replace(/^book of\s+/, "")
+    .trim();
+
+  const bookKeys = ["flesh", "loss", "love", "coven", "sanctuary", "unknown"];
+  const matchedKey = bookKeys.find((key) => key === normalized);
+
+  if (!matchedKey) {
+    container.innerHTML = `
+      <p class="error-msg">
+        ☩ ERROR: NO SUCH BOOK EXISTS IN THIS ARCHIVE.
+        TYPE <span>/books</span> TO VIEW AVAILABLE GOSPELS. ☩
+      </p>
+    `;
+
+    isProcessing = false;
+    sessionState = "WELCOME";
+
+    if (inputLine) {
+      inputLine.style.display = "";
+    }
+
+    return;
+  }
+
+  const book = DivineOS_Library[matchedKey];
+
+  container.innerHTML = `<div id="read-output"></div>`;
+  const outputTarget = document.getElementById("read-output");
+
+  const readText = `☩ ${book.title} ☩\n\n${book.description}`;
+
+  typeWriter(readText, outputTarget, 0, () => {
+    isProcessing = false;
+    sessionState = "WELCOME";
+
+    if (inputLine) {
+      inputLine.style.display = "";
+    }
+
+    const inputField = document.getElementById("terminal-input");
+    if (inputField) {
+      inputField.focus();
+    }
+  });
+}
+
+function executeInfoCommand(container, query, inputLine) {
+  isProcessing = true;
+  sessionState = "INFO"; 
+
+
+
+}
+

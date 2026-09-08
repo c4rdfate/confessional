@@ -12,6 +12,7 @@ html, body {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  scrollbar-color: #33ff33 #050705;
 }
 
 /* Terminal Container */
@@ -107,9 +108,9 @@ html, body {
   flex: 1;
   padding: 40px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   gap: 35px; 
-  overflow-y: fixed;
+  overflow-y: auto;
 }
 
 /* Title Section */
