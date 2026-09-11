@@ -244,44 +244,56 @@ function executeRitualLoop(text, inputLine) {
 
   console.log("DIVINE_OS MATCHED BOOKS: ", matchedBooks);
 
-  const overlayContent = openRitualOverlay();
+const overlayContent = openRitualOverlay();
 
-  overlayContent.innerHTML = `
-    <div class="diagnostic-log">
-      <p>[ CONFESSION RECEIVED ]</p>
-      <p>[ OPENING ARCHIVES... ]</p>
-      <p>[ CONSULTING BOOKS... ]</p>
-      <div class="log-lines"></div>
-    </div>
-  `;
+overlayContent.innerHTML = `
+  <div class="diagnostic-log">
+    <p>[ CONFESSION RECEIVED ]</p>
+  </div>
+`;
 
-  const logLinesContainer = overlayContent.querySelector(".log-lines");
-  const booksToPrint = ["flesh", "loss", "love", "coven", "sanctuary"];
+const diagnosticLog = overlayContent.querySelector(".diagnostic-log");
 
-  typeBookStatusLines(booksToPrint, matchedBooks, logLinesContainer, 0, () => {
-    const compileLine = document.createElement("p");
-    compileLine.classList.add("compile-flash");
-    logLinesContainer.appendChild(compileLine);
+const openingLine = document.createElement("p");
+diagnosticLog.appendChild(openingLine);
 
-    typeWriter("[ COMPILING ABSOLUTION... ]", compileLine, 0, () => {
-      scrollOverlayToBottom();
+typeWriter("[ OPENING ARCHIVES... ]", openingLine, 0, () => {
+  const consultingLine = document.createElement("p");
+  diagnosticLog.appendChild(consultingLine);
 
-      setTimeout(() => {
-        sessionState = "ABSOLUTION";
+  typeWriter("[ CONSULTING BOOKS... ]", consultingLine, 0, () => {
+    const logLinesContainer = document.createElement("div");
+    logLinesContainer.classList.add("log-lines");
+    diagnosticLog.appendChild(logLinesContainer);
 
-        const compiledAbsolution = buildLiturgyString(matchedBooks);
+    const booksToPrint = ["flesh", "loss", "love", "coven", "sanctuary"];
 
-        overlayContent.innerHTML = `<div id="absolution-output"></div>`;
-        const outputTarget = document.getElementById("absolution-output");
+    typeBookStatusLines(booksToPrint, matchedBooks, logLinesContainer, 0, () => {
+      const compileLine = document.createElement("p");
+      compileLine.classList.add("compile-flash");
+      diagnosticLog.appendChild(compileLine);
 
-        typeWriter(`☩ ${compiledAbsolution} ☩`, outputTarget, 0, () => {
-          setTimeout(() => {
-            renderEndingChoices();
-          }, 2000);
-        });
-      }, 1200);
+      typeWriter("[ COMPILING ABSOLUTION... ]", compileLine, 0, () => {
+        scrollOverlayToBottom();
+
+        setTimeout(() => {
+          sessionState = "ABSOLUTION";
+
+          const compiledAbsolution = buildLiturgyString(matchedBooks);
+
+          overlayContent.innerHTML = `<div id="absolution-output"></div>`;
+          const outputTarget = document.getElementById("absolution-output");
+
+          typeWriter(`☩ ${compiledAbsolution} ☩`, outputTarget, 0, () => {
+            setTimeout(() => {
+              renderEndingChoices();
+            }, 2000);
+          });
+        }, 1200);
+      });
     });
   });
+});
 }
 
 function typeBookStatusLines(bookKeys, matchedBooks, container, index, onComplete) {

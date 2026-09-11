@@ -258,15 +258,15 @@ header, footer {
 }
 
 .diagnostic-log {
-    text-align: center;
+  text-align: left;
 }
 
 .log-lines {
-    text-align: left;
-    display: inline-block;
+  text-align: left;
+  display: block;
 }
 
-/* Modal Styling */ 
+/* Overlay Styling */ 
 
 .ritual-overlay {
   display: none;
@@ -296,8 +296,6 @@ header, footer {
   white-space: pre-line;
 }
 
-.log-lines p {
-  white-space: nowrap;
-}
+
 
 
