@@ -217,6 +217,10 @@ html, body {
   user-select: none;
 }
 
+.ritual-overlay-content .input-line {
+  margin-top: 30px; 
+}
+
 #terminal-input {
   flex: 1;
   background: transparent;

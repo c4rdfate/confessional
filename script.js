@@ -11,6 +11,9 @@ const DivineOS_Library = {
     description: "A GOSPEL OF THE BODY - THE SACRED GEOMETRY OF FLESH AND BLOOD. ITS SCARS, ITS TRANSFORMATION, AND ITS REVELATION IN THE MIRROR OF THE DIVINE.",
     keywords: ["body", "skin", "scar", "scars", "surgery", "chest", "breast", "breasts", "nipples", "genitals", "vagina", "penis", "anus", "ass", "mirror", "voice","flesh", "trans", "transition", "blood", "shape", "touch", "name","hormone", "recognition",
     ],
+    questions: [
+
+    ],
     absolutions: [
       "THE ARCHITECTURE OF YOUR FLESH IS IMMACULATE",
       "YOUR SCARS ARE NOT WOUNDS. THEY ARE SIGNATURES.", 
@@ -19,13 +22,19 @@ const DivineOS_Library = {
       "BONDS OF THE FLESH, SHED LIKE CRIMSON.",
       "EVERY NEEDLE, EVERY STITCH, EVERY WAITING ROOM — WRITTEN INTO SCRIPTURE NOW.",
     ],
+    penance: [ 
+
+    ]
   },
 
   loss: {
     title: "BOOK OF LOSS",
     description: "A GOSPEL OF WHAT IS LEFT BEHIND - THE SACRED GEOMETRY OF LOSS AND GRIEF. ITS TEARS, ITS TRANSFORMATION, AND THE SACRED WEIGHT OF ABSENCE.",
     keywords: ["loss", "miss", "grief", "past", "left", "home", "church", "tear","tears", "lonely", "memory", "memories", "forgotten", "gone", "absent","absence", "closet", "shame", "heartbreak", "sorrow", "regret","remorse", "heartache", "isolation", "emptiness",
-    ],
+    ],   
+   questions: [
+
+    ], 
     absolutions: [
       "THE GHOST FREQUENCIES OF YOUR PAST ARE LOCKED HERE IN PERPETUITY.",
       "THE VOID COMMEMORATES YOUR GRIEF AND DECLARES IT AS SACRED.",
@@ -39,12 +48,18 @@ const DivineOS_Library = {
       "EVERY ABSENCE YOU CARRY IS PROOF OF WHAT YOU WERE BRAVE ENOUGH TO LOVE.", 
       "THE PAST DOES NOT ASK PERMISSION TO VISIT. LET IT COME AND GO, KNOW THAT YOU ARE SAFE IN THE PRESENT.",  
     ],
+    penance: [ 
+      
+    ]
   },
 
   love: {
     title: "BOOK OF LOVE",
     description: "A GOSPEL OF DESIRE AND DEVOTION - THE HOLY ENERGY OF YEARNING AND AFFECTION. ITS TOUCH, ITS KISSES, AND THE SACRED BONDS OF INTIMACY.",
     keywords: ["love", "desire", "touch", "kiss", "lover", "beautiful", "affection", "hold", "care", "want", "adoration", "tender", "embrace", "devotion", "worship", "passion", "romance", "intimacy", "connection", "heart", "soul", "bond", "relationship", "companionship", "yearn", "yearning", "lust", "eros", "partner", "partnership",
+    ],
+    questions: [
+
     ],
     absolutions: [
       "YOUR CAPACITY FOR AFFECTION IS A HOLY, UNBLINKING STROBE.",
@@ -60,12 +75,18 @@ const DivineOS_Library = {
       "YOUR HEART IS A SACRED TEMPLE, AND YOUR DESIRES ARE ITS HOLY SCRIPTURES.", 
       "YEARNING IS NOT A SIN, NOR IS IT A FLAW. IT IS TENDER AND EVIDENCE OF YOUR CAPACITY TO FEEL FULLY.",
     ],
+    penance: [ 
+      
+    ]
   },
 
   coven: {
     title: "BOOK OF COVEN",
     description: "A GOSPEL OF CHOSEN FAMILIES AND SACRED BONDS - THE HOLY ALLIANCE OF THOSE WHO HAVE CHOSEN TO WALK TOGETHER. FAMILY BUILT NOT BY BLOOD, BUT BY THE SACRED CHOICE OF THE HEART.",
     keywords: ["friends", "chosen", "found", "house", "community", "mother", "sister","brother", "elder", "sibling", "kin", "belong", "together", "ancestor","ballroom", "coven", "family", "friendship", "bond", "connection","companionship", "platonic", "trust", "friend", "partner", "partnership",
+    ],
+   questions: [
+
     ],
     absolutions: [
       "REVERENCE TO YOUR SACRED, SELF-CONSTRUCTED LINEAGE.",
@@ -78,13 +99,19 @@ const DivineOS_Library = {
       "THE PEOPLE WHO STAYED WITH YOU THROUGH THE CHAOS ARE YOUR TRUE ANCESTORS. WRITE THEIR NAMES INTO THE SCRIPTURE OF YOUR HEART.",
       "YOUR ELDERS TAUGHT YOU HOW TO SURVIVE. YOUR SIBLINGS ARE TEACHING YOU HOW TO LIVE.", 
       "YOU WERE SOMEONE'S CHOSEN FAMILY, AND YOU WILL ALWAYS BE SOMEONE'S CHOSEN FAMILY. THAT IS A SACRED TRUTH.",
-    ],
+    ], 
+    penance: [ 
+      
+    ]
   },
 
   sanctuary: {
     title: "BOOK OF SANCTUARY",
     description: "A GOSPEL OF REFUGE - THE SPACES THAT SHELTER FROM THE CHAOS OF THE WORLD. LOUD OR SILENT, DARK OR LIGHT, WHERE THE SPIRIT IS SAFE AND THE SOUL IS FREE.",
     keywords: [ "sanctuary", "safe", "room", "dance", "hiding", "shelter", "dark", "peace", "home", "altar", "rest", "refuge", "safety", "quiet", "solitude", "comfort", "protection", "sacred space",
+    ],    
+    questions: [
+
     ],
     absolutions: [
       "THE GEOGRAPHY OF YOUR SAFETY IS DECLARED CONSECRATED GROUND.",
@@ -101,6 +128,9 @@ const DivineOS_Library = {
       "YOU WILL ALWAYS HAVE A PLACE TO RETURN TO, A HOME FOR YOUR SPIRIT.", 
       "YOUR SANCTUARY ASKS NOTHING OF YOU. THAT IS THE POINT.", 
     ],
+    penance: [ 
+      
+    ]
   },
 
   unknown: {
@@ -114,6 +144,9 @@ const DivineOS_Library = {
       "THE ARCHIVE IS A LIVING ENTITY, AND IT WELCOMES ALL TRANSMISSIONS, EVEN THOSE THAT DEFY CLASSIFICATION.", 
       "WHAT YOU HAVE CONFESSED DOES NOT MATCH ANY EXISITING BOOK. WRITE YOUR OWN BOOK."
     ],
+    questions: [ 
+      
+    ]
   },
 };
 
@@ -328,9 +361,9 @@ function typeBookStatusLines(bookKeys, matchedBooks, container, index, onComplet
 
   const bookKey = bookKeys[index];
   const bookTitle = DivineOS_Library[bookKey].title;
-  const isActive = matchedBooks.includes(bookKey);
-  const statusText = isActive ? "ACTIVE" : "OFFLINE";
-  const statusClass = isActive ? "status-active" : "status-offline";
+  const isWitnessed = matchedBooks.includes(bookKey);
+  const statusText = isWitnessed ? "WITNESSED" : "SEALED";
+  const statusClass = isWitnessed ? "status-witnessed" : "status-";
 
   const lineEl = document.createElement("p");
   container.appendChild(lineEl);
@@ -389,6 +422,8 @@ function openRitualOverlay() {
   const backdrop = document.getElementById("ritual-overlay");
   const content = document.getElementById("ritual-overlay-content");
 
+  moveInputBackToTerminal(); 
+
   if (backdrop) backdrop.classList.add("active");
   if (content) content.innerHTML = "";
 
@@ -398,6 +433,8 @@ function openRitualOverlay() {
 function closeRitualOverlay() {
   const backdrop = document.getElementById("ritual-overlay");
   const content = document.getElementById("ritual-overlay-content");
+
+  moveInputBackToTerminal();
 
   if (backdrop) backdrop.classList.remove("active");
   if (content) content.innerHTML = "";
@@ -409,6 +446,25 @@ function scrollOverlayToBottom() {
     overlay.scrollTop = overlay.scrollHeight;
   }
 }
+
+function moveInputIntoOverlay() {
+  const inputLine = document.querySelector(".input-line");
+  const overlayContent = document.getElementById("ritual-overlay-content");
+
+  if (inputLine && overlayContent) {
+    overlayContent.appendChild(inputLine);
+  }
+}
+
+function moveInputBackToTerminal() {
+  const inputLine = document.querySelector(".input-line");
+  const terminalContent = document.querySelector(".terminal-content"); 
+
+  if (inputLine && terminalContent) {
+    terminalContent.appendChild(inputLine);
+  }
+}
+
 
 // ============ TYPEWRITER EFFECT ============
 
@@ -431,6 +487,7 @@ function typeWriter(text, element, index = 0, callback = null) {
 }
 
 // ============ ENDING / TERMINATION ============
+
 
 function renderEndingChoices() {
   const overlayContent = document.getElementById("ritual-overlay-content");
@@ -463,6 +520,7 @@ THE NEW CANON HAS RECORDED YOUR TRANSMISSION.
       const inputLine = document.querySelector(".input-line");
       if (inputLine) {
         inputLine.style.display = "";
+        moveInputIntoOverlay();
       }
 
       const inputField = document.getElementById("terminal-input");
@@ -529,6 +587,7 @@ function rebootToWelcome(displayContainer) {
   sessionState = "WELCOME";
 
   closeRitualOverlay();
+  moveInputBackToTerminal();
   displayContainer.innerHTML = initialWelcomeHTML;
 
   const inputLine = document.querySelector(".input-line");
@@ -600,6 +659,7 @@ function executeReadCommand(query, inputLine) {
 
       if (inputLine) {
         inputLine.style.display = "";
+        moveInputIntoOverlay();
       }
 
       const inputField = document.getElementById("terminal-input");
@@ -618,9 +678,9 @@ function displayInfoDirectory(container) {
       <p>[ CREATOR ARCHIVAL DATA ]</p>
       <div class="log-lines">
         <p>► VESSEL      : LEVIATHAN SHOATES </p>
-        <p>► PROJECT     : NEW CANONS 2026</p>
+        <p>► PROJECT     : DIVINE_OS | QUEER CONFESSIONAL TERMINAL  2026</p>
         <p>► STATEMENT   : THIS ARCHIVE EXISTS TO /CONFESS. TO REVEAL. TO RECLAIM.</p>
-        <p>► ENRICHMENT  : LEVIATHANART.COM</p>
+        <p>► GREATER WORK: LEVIATHANART.COM</p>
         <p>► WEB SIGNAL  : @C4RDFATE</p>
         <p>THIS EXPERIENCE DOES NOT SAVE YOUR DATA IN ANY DATABASE OR SERVER.</p>
       </div>
