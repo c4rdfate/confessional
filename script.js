@@ -633,7 +633,7 @@ function renderSessionSummary() {
  
   const bookNames = [...sessionMatchedBooks].map((key) => DivineOS_Library[key].title);
   const summaryText = bookNames.length > 0
-    ? `[ THE WITNESS HAS WITNESSED YOU IN ${bookNames.join(", ")}. ]\n[ WHAT WAS SPOKEN HERE IS NOW PART OF THE CANON. ]`
+    ? `[ THE WITNESS HAS RECORDED YOU IN ${bookNames.join(", ")}. ]\n[ WHAT WAS SPOKEN HERE IS NOW PART OF THE CANON. ]`
     : `[ WHAT WAS SPOKEN HERE DEFIED EVERY BOOK, AND WAS STILL RECEIVED. ]`;
  
   typeWriter(summaryText, target, 0, () => {
@@ -657,8 +657,8 @@ THE RITUAL IS COMPLETE.
     setTimeout(() => {
       outputTarget.innerHTML += `
         <br>
-        <p>[1] CLOSE THIS ARCHIVE. BEGIN ANEW.</p>
-        <p>[2] TERMINATE DIVINE_OS TERMINAL MODULE</p>
+        <p>[1] CLOSE THIS ARCHIVE AND BEGIN ANEW </p>
+        <p>[2] TERMINATE DIVINE_OS TERMINAL MODULE </p>
         <br>
         <p>ENTER SELECTION</p>
       `;
