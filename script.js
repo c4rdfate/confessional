@@ -21,13 +21,14 @@ const DivineOS_Library = {
       "YOUR SCARS ARE NOT WOUNDS. THEY ARE SIGNATURES.",
       "THE TRANSITION OF FLESH IS THE REWRITING OF SACRED GEOMETRY.",
       "YOUR FLESH IS A TEMPLE, AND YOU ARE ITS PRIEST.",
-      "BONDS OF THE FLESH, SHED LIKE CRIMSON.",
-      "EVERY NEEDLE, EVERY STITCH, EVERY WAITING ROOM — WRITTEN INTO SCRIPTURE NOW.",
+      "UNWANTED BONDS OF THE FLESH, SHED LIKE CRIMSON.",
+      "EVERY NEEDLE, EVERY STITCH, EVERY WAITING ROOM. WRITTEN INTO SCRIPTURE NOW.",
       "THE NAME YOU CHOSE IS A SACRED DECLARATION OF WHO YOU ARE.", 
       "THE BODY YOU WERE GIVEN AND THE BODY YOU HAVE BUILT ARE A TESTAMENT TO YOUR STRENGTH.", 
       "YOUR FLESH WAS NOT CORRECTED. IT WAS FINALLY ALLOWED TO FLOW INTO ITS OWN HOLY FORM.", 
       "TENDER IS THE FLESH THAT HAS BEEN RECOGNIZED, AND YOUR FLESH IS TENDER.", 
       "YOU STUDIED YOUR OWN REFLECTION UNTIL IT LOOKED BACK AT YOU WITH RECOGNITION.", 
+      "THE BODY YOU HAVE CONSTRUCTED IS A CATHEDRAL OF SELF EMPOWERMENT, A SACRED MONUMENT OF YOUR OWN MAKING."
     ],
     penance: [
       "LOOK IN THE MIRROR TONIGHT AND NAME ONE THING YOUR BODY DID FOR YOU TODAY. SAY IT ALOUD.",
@@ -58,6 +59,7 @@ const DivineOS_Library = {
       "YOUR TEARS ARE LOGGED. YOUR TEARS ARE HONORED. NOTHING YOU MOURNED WAS SMALL.",
       "EVERY ABSENCE YOU CARRY IS PROOF OF WHAT YOU WERE BRAVE ENOUGH TO LOVE.",
       "THE PAST DOES NOT ASK PERMISSION TO VISIT. LET IT COME AND GO, KNOW THAT YOU ARE SAFE IN THE PRESENT.",
+      "LOSS IS APART OF LIFE, BUT IT DOES NOT DEFINE IT. GRIEF THEN, IS BUT A TESTAMENT TO THE DEPTH OF YOUR LOVE.", 
     ],
     penance: [
       "WRITE A LETTER TO THE PERSON OR PLACE YOU LOST, AND THEN BURN IT OR TEAR IT UP. LET THE ASHES OR PIECES BE YOUR WITNESS.",
@@ -119,6 +121,8 @@ const DivineOS_Library = {
       "THE PEOPLE WHO STAYED WITH YOU THROUGH THE CHAOS ARE YOUR TRUE ANCESTORS. WRITE THEIR NAMES INTO THE SCRIPTURE OF YOUR HEART.",
       "YOUR ELDERS TAUGHT YOU HOW TO SURVIVE. YOUR SIBLINGS ARE TEACHING YOU HOW TO LIVE.",
       "YOU WERE SOMEONE'S CHOSEN FAMILY, AND YOU WILL ALWAYS BE SOMEONE'S CHOSEN FAMILY. THAT IS A SACRED TRUTH.",
+      "FAMILY IS SOMETIMES MADE, NOT GIVEN FROM BIRTH. SO THEN, YOU ARE A CREATOR OF NEW, SACRED LINEAGES THAT WILL SPREAD FUTHER THAN YOU CAN EVER SEE.", 
+      "CONNECTIONS ARE MADE IN THE MOST UNLIKELY PLACES, AND YET CAN BECOME THE MOST SACRED BONDS.", 
     ],
     penance: [
       "REACH OUT TO SOMEONE IN YOUR COVEN AND TELL THEM SOMETHING YOU APPRECIATE ABOUT THEM.",
@@ -130,7 +134,7 @@ const DivineOS_Library = {
   sanctuary: {
     title: "BOOK OF SANCTUARY",
     description: "A GOSPEL OF REFUGE - THE SPACES THAT SHELTER FROM THE CHAOS OF THE WORLD. LOUD OR SILENT, DARK OR LIGHT, WHERE THE SPIRIT IS SAFE AND THE SOUL IS FREE.",
-    keywords: [ "sanctuary", "safe", "room", "dance", "hiding", "shelter", "dark", "peace", "home", "altar", "rest", "refuge", "safety", "quiet", "solitude", "comfort", "protection", "sacred space",
+    keywords: [ "sanctuary", "safe", "room", "dance", "hiding", "shelter", "dark", "peace", "home", "altar", "rest", "refuge", "safety", "quiet", "solitude", "comfort", "protection", "sacred space", "midnight", "dance floor", "dance", "club", 
     ],
     questions: [
       "WHERE DO YOU GO TO FEEL SAFE, AND WHAT MAKES IT SACRED?",
@@ -185,6 +189,7 @@ let sessionState = "WELCOME";
 let initialWelcomeHTML = "";
 let sessionMatchedBooks = new Set();
 let pendingBookForFollowup = null;
+let pendingRoundMatchedBooks = [];
 let hasConfessedThisSession = false;
  
 // ============ DOM INITIALIZATION ============
@@ -244,7 +249,7 @@ function handleTerminalRouter(input, displayContainer) {
  
     typeWriter("[ THE WITNESS HAS RECEIVED THIS TOO. ]", target, 0, () => {
       setTimeout(() => {
-        compileAbsolutionAndPenance(overlayContent, [pendingBookForFollowup]);
+        compileAbsolutionAndPenance(overlayContent, pendingRoundMatchedBooks, [pendingBookForFollowup]);
       }, 1000);
     });
     return;
@@ -322,7 +327,7 @@ function handleTerminalRouter(input, displayContainer) {
     if (!confessionText) {
       displayContainer.innerHTML = `
         <p class="error-msg">
-          ☩ ERROR: THE DIRECTORY REQUIRES AN EMBODIED TRUTH.
+          ☩ ERROR: THE WITNESS REQUIRES AN EMBODIED TRUTH.
           TYPE CONTENT AFTER <span>/confess</span> ☩
         </p>
       `;
@@ -336,7 +341,7 @@ function handleTerminalRouter(input, displayContainer) {
  
   displayContainer.innerHTML = `
     <p class="error-msg">
-      ☩ ERROR: INVALID LITURGICAL SYNTAX.
+      ☩ ERROR: INVALID LITURGICAL SYNTAX. THE WITNESS CANNOT PROCES THIS INPUT. 
       TYPE <span>/confess</span> THEN [YOUR CONFESSION] TO SEEK ABSOLUTION. ☩
     </p>
   `;
@@ -396,6 +401,7 @@ function runOpeningCeremony(overlayContent, matchedBooks, onComplete) {
   setOverlayContent(overlayContent, `
     <div class="diagnostic-log">
       <p>[ CONFESSION RECEIVED ]</p>
+      <p>[ THE WITNESS APPROACHES THE SCREEN ]</p>
     </div>
   `);
  
@@ -431,6 +437,7 @@ function runOpeningCeremony(overlayContent, matchedBooks, onComplete) {
 // ============ FOLLOW-UP QUESTION ============
  
 function proceedToFollowup(overlayContent, matchedBooks) {
+  pendingRoundMatchedBooks = matchedBooks;
   // choose which book's question to ask, randomly, from the matched books
   const bookKey = matchedBooks.length > 0
     ? matchedBooks[Math.floor(Math.random() * matchedBooks.length)]
@@ -639,7 +646,7 @@ function renderSessionSummary() {
  
   const bookNames = [...sessionMatchedBooks].map((key) => DivineOS_Library[key].title);
   const summaryText = bookNames.length > 0
-    ? `[ THE WITNESS HAS RECORDED YOU IN ${bookNames.join(", ")}. ]\n[ WHAT WAS SPOKEN HERE IS NOW PART OF THE CANON. ]`
+    ? `[ THE WITNESS HAS RECORDED YOU IN ${bookNames.join(", ")}. ]\n[ WHAT WAS SPOKEN HERE IS NOW PART OF THE NEW CANON. ]`
     : `[ WHAT WAS SPOKEN HERE DEFIED EVERY BOOK, AND WAS STILL RECEIVED. ]`;
  
   typeWriter(summaryText, target, 0, () => {
@@ -714,6 +721,8 @@ function terminateTerminal(inputLine) {
 THE WITNESS HAS CLOSED THE ARCHIVE.
  
 THIS TERMINAL WILL ALWAYS BE ONLINE, READY FOR YOUR CONFESSION. 
+
+THE WITNESS HAS STEPPED AWAY.
  
 [ TERMINAL HALTED SAFELY... ]
  
@@ -731,6 +740,7 @@ THIS TERMINAL WILL ALWAYS BE ONLINE, READY FOR YOUR CONFESSION.
  
   sessionMatchedBooks.clear();
   pendingBookForFollowup = null;
+  pendingRoundMatchedBooks = [];
   hasConfessedThisSession = false;
 }
  
@@ -755,6 +765,7 @@ function rebootToWelcome(displayContainer) {
   }
  
   sessionMatchedBooks.clear();
+  pendingRoundMatchedBooks = [];
   pendingBookForFollowup = null;
   hasConfessedThisSession = false;
 }
@@ -837,7 +848,7 @@ function displayInfoDirectory(container) {
       <div class="log-lines">
         <p>► VESSEL      : LEVIATHAN SHOATES </p>
         <p>► PROJECT     : DIVINE_OS | QUEER CONFESSIONAL TERMINAL  2026</p>
-        <p>► STATEMENT   : THIS ARCHIVE EXISTS TO /CONFESS. TO REVEAL. TO RECLAIM.</p>
+        <p>► STATEMENT   : THIS TERMINAL EXISTS TO /CONFESS. TO REVEAL. TO RECLAIM.</p>
         <p>► GREATER WORK: LEVIATHANART.COM</p>
         <p>► WEB SIGNAL  : @C4RDFATE</p>
         <p>THIS EXPERIENCE DOES NOT SAVE YOUR DATA IN ANY DATABASE OR SERVER.</p>

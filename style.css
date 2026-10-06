@@ -86,20 +86,21 @@ html, body {
   text-align: center;
   overflow: hidden; 
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .terminal-header span {
   display: inline-block;
   transform: translateX(100%);
-  animation: scroll-left 15s linear infinite;
+  animation: scroll-left 60s linear infinite;
 }
 
 @keyframes scroll-left{
   0% {
-    transform: translateX(98%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-98%);
+    transform: translateX(-50%);
   }
 }
 
@@ -110,7 +111,6 @@ html, body {
   display: flex;
   flex-direction: column; 
   gap: 35px; 
-  overflow-y: auto;
   min-height: 0;
 }
 
