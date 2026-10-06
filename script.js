@@ -103,7 +103,7 @@ const DivineOS_Library = {
   coven: {
     title: "BOOK OF COVEN",
     description: "A GOSPEL OF CHOSEN FAMILIES AND SACRED BONDS - THE HOLY ALLIANCE OF THOSE WHO HAVE CHOSEN TO WALK TOGETHER. FAMILY BUILT NOT BY BLOOD, BUT BY THE SACRED CHOICE OF THE HEART.",
-    keywords: ["friends", "chosen", "found", "house", "community", "mother", "sister","brother", "elder", "sibling", "kin", "belong", "together", "ancestor","ballroom", "coven", "family", "friendship", "bond", "connection","companionship", "platonic", "trust", "friend", "partner", "partnership",
+    keywords: ["friends", "chosen", "found", "house", "community", "mother", "sister","brother", "elder", "sibling", "kin", "belong", "together", "ancestor","ballroom", "coven", "family", "friendship", "bond", "connection", "platonic", "trust", "friend", "partner", "partnership",
     ],
     questions: [
       "WHAT DOES YOUR CHOSEN FAMILY KNOW ABOUT YOU THAT NO ONE ELSE DOES?",
