@@ -182,7 +182,7 @@ const DivineOS_Library = {
   },
 };
 
-// ============ RUNTIME STATE ============
+// ============ DECLARATIONS ============
  
 let isProcessing = false;
 let sessionState = "WELCOME";
@@ -249,7 +249,7 @@ function handleTerminalRouter(input, displayContainer) {
  
     typeWriter("[ THE WITNESS HAS RECEIVED THIS TOO. ]", target, 0, () => {
       setTimeout(() => {
-        compileAbsolutionAndPenance(overlayContent, pendingRoundMatchedBooks, [pendingBookForFollowup]);
+        compileAbsolutionAndPenance(overlayContent, pendingRoundMatchedBooks, pendingBookForFollowup);
       }, 1000);
     });
     return;
@@ -395,7 +395,7 @@ function executeRitualLoop(text, inputLine, isFirstRound = true) {
   }
 }
  
-// ============ OPENING CEREMONY (round 1 only) ============
+// ============ OPENING, HAPPENS ONCE PER SESSION ============
  
 function runOpeningCeremony(overlayContent, matchedBooks, onComplete) {
   setOverlayContent(overlayContent, `
@@ -519,19 +519,20 @@ function buildLiturgyString(matchedBooks) {
   return selectedPhrases.join(" // ");
 }
  
-function compileAbsolutionAndPenance(overlayContent, roundMatchedBooks) {
+function compileAbsolutionAndPenance(overlayContent, roundMatchedBooks, followupBookKey) {
   setOverlayContent(overlayContent, `<p class="compile-flash">[ COMPILING ABSOLUTION... ]</p>`);
- 
+
   setTimeout(() => {
     const absolution = buildLiturgyString(roundMatchedBooks);
-    const penanceBookKey = roundMatchedBooks[0]; // "unknown" has no penance key — guarded below
- 
+    const penanceBookKey = followupBookKey || roundMatchedBooks[0] || "unknown";
+
     setOverlayContent(overlayContent, `<div id="absolution-output"></div>`);
     const target = document.getElementById("absolution-output");
- 
+
     typeWriter(`☩ ${absolution} ☩`, target, 0, () => {
       const book = DivineOS_Library[penanceBookKey];
-      if (book.penance) {
+
+      if (book && book.penance) {
         const penance = book.penance[Math.floor(Math.random() * book.penance.length)];
         setTimeout(() => {
           const penanceEl = document.createElement("p");
@@ -546,19 +547,18 @@ function compileAbsolutionAndPenance(overlayContent, roundMatchedBooks) {
     });
   }, 1200);
 }
- 
 // ============ RITUAL OVERLAY HELPERS ============
  
-// Always evacuates the input line before wiping overlay content, so it
-// never gets destroyed by an innerHTML overwrite while parked inside.
 function setOverlayContent(overlayContent, html) {
-  moveInputBackToTerminal(); // safe no-op if input isn't currently inside overlayContent
+  moveInputBackToTerminal(); 
   overlayContent.innerHTML = html;
 }
  
 function openRitualOverlay() {
   const backdrop = document.getElementById("ritual-overlay");
   const content = document.getElementById("ritual-overlay-content");
+
+  moveInputBackToTerminal(); 
  
   if (backdrop) backdrop.classList.add("active");
   if (content) content.innerHTML = "";
@@ -846,11 +846,11 @@ function displayInfoDirectory(container) {
     <div class="diagnostic-log">
       <p>[ CREATOR ARCHIVAL DATA ]</p>
       <div class="log-lines">
-        <p>► VESSEL      : LEVIATHAN SHOATES </p>
-        <p>► PROJECT     : DIVINE_OS | QUEER CONFESSIONAL TERMINAL  2026</p>
-        <p>► STATEMENT   : THIS TERMINAL EXISTS TO /CONFESS. TO REVEAL. TO RECLAIM.</p>
-        <p>► GREATER WORK: LEVIATHANART.COM</p>
-        <p>► WEB SIGNAL  : @C4RDFATE</p>
+        <p>☩ VESSEL      : LEVIATHAN SHOATES</p>
+        <p>☩ PROJECT     : DIVINE_OS | QUEER CONFESSIONAL TERMINAL 2026</p>
+        <p>☩ STATEMENT   : THIS TERMINAL EXISTS TO /CONFESS. TO REVEAL. TO RECLAIM.</p>
+        <p>☩ GREATER WORK: LEVIATHANART.COM</p>
+        <p>☩ WEB SIGNAL  : @C4RDFATE</p>
         <p>THIS EXPERIENCE DOES NOT SAVE YOUR DATA IN ANY DATABASE OR SERVER.</p>
       </div>
     </div>
